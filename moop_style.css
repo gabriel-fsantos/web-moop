@@ -5,13 +5,14 @@ html, body {
 html {
     display: table;
     margin: auto;
+    background-color: gray;
 }
 
 body {
-    background-color: #ebeef0;
     display: table-cell;
     vertical-align: middle;
     width: 600px;
+    background-color: gray;
 }
 
 h1 {
@@ -21,6 +22,12 @@ h1 {
 input[type=number]{
   opacity: 1;
   width: 90px;
+}
+
+input[type=range]{
+  opacity: 1;
+  width: 90px;
+  margin-left: 20px;
 }
 
 input[type=text], select {
