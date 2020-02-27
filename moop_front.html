@@ -17,59 +17,66 @@
 	</head>
 
 	<body>
-		<h1>MOOP - Multiobjective Optimization</h1>
+		<div class="conteiner">
+			<div class="jumbotron">
+				<h1 class="display-4">MOOP - Multiobjective Optimization</h1>
+			</div>
+		</div>
 		<div>
 			<form class="needs-validation" novalidate>
-
-				Problem dimension (2 to 6): <output name="nout" id="nout">2</output>
-			
-				<input type="range" name="n" id="n" value="2" min="2" max="6" step="1" oninput="myFunction();nout.value = n.value">
-				
-				<div>
-					Looks good!
+				<div class="row">
+					<div class="col-sm-3">
+						Problem dimension (2 to 6): <output name="nout" id="nout">2</output><br>
+						<input type="range" name="n" id="n" value="2" min="2" max="6" step="1" oninput="myFunction();nout.value = n.value">
+					</div>
+					<div class="col-sm-3">
+						Number of samples (4 to 17): <output name="nsout" id="nsout">9</output><br>
+						<input type="range" name="ns" id="ns" value="9" min="4" max="17" step="1" oninput="nsout.value = ns.value">
+					</div>
 				</div>
-
 				<br>
-
-				Number of samples (4 to 17): <output name="nsout" id="nsout">9</output>
-				<br>
-				<input type="range" name="ns" id="ns" value="9" min="4" max="17" step="1" oninput="nsout.value = ns.value">
-				<br>
-				Objective function 1:
-				<input type="text" class="form-control" id="func1" name="func1" value="(x[0, :] - 4)**2 + (x[1, :] + 3)**2" required>
-				<br>
-				Objective function 2:
-				<input type="text" id="func2" name="func2" value="x[0, :]**2 + (x[1, :] + 9)**2">
+				<div class="row">
+					<div class="col-sm-3">
+						<label>Objective function 1:*</label>
+				<input type="text"class="form-control" id="func1" name="func1" value="(x[0, :] - 4)**2 + (x[1, :] + 3)**2" required>
+					</div>
+					<div class="col-sm-3">
+						<label>Objective function 2:*</label>
+						<input type="text" class="form-control" id="func2" name="func2" value="x[0, :]**2 + (x[1, :] + 9)**2" required>
+					</div>
+				</div>
 				<br>
 				Lower bounds:
 				<br>
 				<p id="xminHolder">
-				<input type="number" id="x_min_1" name="x_min_1" value="-10">
-				<input type="number" id="x_min_2" name="x_min_2" value="-10">
+				<input type="number" id="x_min_1" name="x_min_1" value="-10" required>
+				<input type="number" id="x_min_2" name="x_min_2" value="-10" required>
 				</p>
-				<br>
 				Upper bounds:
 				<br>
 				<p id="xmaxHolder">
-				<input type="number" id="x_max_1" name="x_max_1" value="10">
-				<input type="number" id="x_max_2" name="x_max_2" value="10">
+				<input type="number" id="x_max_1" name="x_max_1" value="10" required>
+				<input type="number" id="x_max_2" name="x_max_2" value="10" required>
 				</p>
+
+				<div class="row">
+					<div class="col-3">
+						<label>Maximum iterations:*</label>
+						<input class="form-control" class="max" type="number" id="n_max" name="n_max" value="200" required>	
+					</div>
+					<div class="col-3">
+						<label>Numerical precision:*</label>
+				<input class="form-control" class="max" type="number" id="eps" name="eps" value="1e-6" required>
+					</div>
+				</div>
 				<br>
-				Maximum iterations:
-				<input type="number" id="n_max" name="n_max" value="200">
-				<br>
-				<br>
-				Numerical precision:
-				<input type="number" id="eps" name="eps" value="1e-6">
-				<br>
-				<br>
-				<button type="button" name="button" onclick="sendRequest()">Solve</button>
+			
+				<button id="teste" name="button" type="button" class="btn btn-outline-primary" onclick="sendRequest()">Solve</button>
 			</form>
 		</div>
-		<div>			
-			<br>
-			<div id="response" style="color: green" height:1000px></div>
-			<div id="response_plot" style="width:100%;height:400px"></div>
+		<div>
+			<div id="response" style="color: green"></div>
+			<div id="response_plot" style="width:99%; height:100%"></div>
 			<div id="error" style="color: red"></div>
 		</div>
 	</body>
