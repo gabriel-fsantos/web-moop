@@ -3,12 +3,24 @@ function myFunction() {
     document.getElementById("xmaxHolder").innerHTML = "";
     var n_value = document.getElementById("n").value;
     for (let i = 1; i <= n_value; i++) {
-        document.getElementById("xminHolder").innerHTML += " <input type=\"number\" id=\"x_min_"+i+"\" name=\"x_min_"+1+"\" value=\"-10\">";
-        document.getElementById("xmaxHolder").innerHTML += " <input type=\"number\" id=\"x_max_"+i+"\" name=\"x_max_"+1+"\" value=\"10\">";
+        document.getElementById("xminHolder").innerHTML += " <input type=\"number\" id=\"x_min_1\" name=\"x_min_1\" value=\"-10\" class=\"form-control inline\" required>";
+        document.getElementById("xmaxHolder").innerHTML += " <input type=\"number\" id=\"x_max_"+i+"\" name=\"x_max_"+1+"\" value=\"10\" class=\"form-control inline\" required>";
     } 
 }
 
 function sendRequest() {
+
+    let a = document.getElementById("teste");
+    a.innerHTML = "<span class=\"spinner-border spinner-border-sm text-light\" role=\"status\"></span>  Loading..."
+    a.disabled = true;
+
+    let form = document.getElementById("form");
+    if(form.checkValidity() === false){
+        a.innerHTML = "Complete inputs";
+        document.getElementById("response_plot").innerHTML = "";
+        return 0;
+    }
+
     let resultElement = document.getElementById('response');
     let errorElement = document.getElementById('error');
     resultElement.innerHTML = null;
@@ -69,10 +81,16 @@ function sendRequest() {
         };
         var data_plot = [trace3];
         Plotly.newPlot('response_plot', data_plot, layout);
+        //Deu Bom
+        a.innerHTML = "Solved, Solve again";
+        a.disabled = false;
         }
         xhr.onerror = function(e) {
             console.log("Ooops, não funcionou: ", e)
             errorElement.innerHTML = "Não funcionou";
+            //Deu ruim
+            a.innerHTML = "Erro!";
+            a.disabled = false;
         }
     } catch (e) {
         console.log('Deu merda', e);

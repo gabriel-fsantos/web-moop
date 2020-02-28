@@ -1,7 +1,9 @@
 body {
-    background-color: rgba(73, 132, 187, 0.726);
-    border-radius: 10px;
-    color: white;
+  background-color: rgba(73, 132, 187, 0.726);
+  border-radius: 10px;
+  color: white;
+  display: table;
+  margin: auto;
 }
 
 h1 {
@@ -13,19 +15,19 @@ input[type=number]{
   width: 90px;
   border-radius: 6px;
   width: 120px;
+  margin-top: 10px;
 }
 
 input[type=range]{
   opacity: 1;
-  width: 90px;
-  margin-left: 10px;
+  width: 100px;
+  margin-left: 5px;
 }
 
 input[type=text], select {
- 
   padding: 12px 20px;
   margin: 8px 0;
-  width: 350px;
+  width: 300px;
   border: 1px solid #ccc;
   border-radius: 6px;
   box-sizing: border-box;
@@ -34,6 +36,11 @@ input[type=text], select {
 button {
   width: 200px;
   margin-bottom: 20px;
+}
+
+#teste:disabled, #teste:hover{
+  background-color: rgba(39, 122, 189, 0.726);
+  color: white
 }
 
 .jumbotron {
@@ -50,8 +57,16 @@ button {
   width: 50%;
 }
 
+output {
+  color:rgba(23, 68, 110, 0.726);
+}
+
 .btn {
   background-color: rgba(23, 68, 110, 0.726);
   border-color: rgba(11, 54, 95, 0.726);
   color:white;
+}
+
+.inline {
+  display: inline;
 }
