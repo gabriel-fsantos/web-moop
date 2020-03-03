@@ -3,8 +3,8 @@ function myFunction() {
     document.getElementById("xmaxHolder").innerHTML = "";
     var n_value = document.getElementById("n").value;
     for (let i = 1; i <= n_value; i++) {
-        document.getElementById("xminHolder").innerHTML += " <input type=\"number\" id=\"x_min_1\" name=\"x_min_1\" value=\"-10\" class=\"form-control inline\" required>";
-        document.getElementById("xmaxHolder").innerHTML += " <input type=\"number\" id=\"x_max_"+i+"\" name=\"x_max_"+1+"\" value=\"10\" class=\"form-control inline\" required>";
+        document.getElementById("xminHolder").innerHTML += "<input type=\"number\" id=\"x_min_"+i+"\" name=\"x_min_"+i+"\" value=\"-10\" class=\"form-control inline\" required>";
+        document.getElementById("xmaxHolder").innerHTML += "<input type=\"number\" id=\"x_max_"+i+"\" name=\"x_max_"+i+"\" value=\"10\" class=\"form-control inline\" required>";
     } 
 }
 
